@@ -127,8 +127,12 @@ async function trySwap() {
         });
     }
   }
- let receipt = await doSwap(address, amount);
- alert("Swap Complete");
+ try {
+  let receipt = await doSwap(address, amount);
+  alert("Swap Complete");
+ } catch (error) {
+   console.log(error);
+ }
 }
 
 function doSwap(userAddress, amount) {
